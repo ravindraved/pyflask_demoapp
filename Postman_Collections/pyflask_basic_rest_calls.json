@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "b1f32781-2f92-4bd9-b07f-3011ea30d8a6",
+		"name": "Flask_App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get-stores",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-stores_by_name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5001/store/store_1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5001",
+					"path": [
+						"store",
+						"store_1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-stores_items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5001/store/store_1/item",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5001",
+					"path": [
+						"store",
+						"store_1",
+						"item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post-stores_items",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Another Store 1231\",\n\t\"items\" : [\"i1\", \"i2\"]\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5001/store/store_1/item",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5001",
+					"path": [
+						"store",
+						"store_1",
+						"item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create-stores",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Another Store 1231\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5001/store",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5001",
+					"path": [
+						"store"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
