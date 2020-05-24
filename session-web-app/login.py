@@ -1,6 +1,6 @@
 from flask import *
 
-app = Flask(__name__)
+app = Flask(__name__,template_folder='../templates')
 app.secret_key = "ayush"
 
 # https://www.javatpoint.com/flask-session
