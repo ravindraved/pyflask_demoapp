@@ -2,6 +2,36 @@ from flask import Flask
 
 app = Flas(__name__)
 
+stores = [
+
+    {
+        'name': 'store_1',
+        'items':
+            [
+                {'name': 'store_1_item_1',
+                 'price': 15.99},
+                {
+                    'name': 'store_1_item_2',
+                    'price': 12.99
+                }
+            ]
+
+    },
+
+    {
+        'name': 'store_2',
+        'items': [
+            {'name': 'store_2_item_1',
+             'price': 15.99},
+
+            {'name': 'store_2_item_2',
+             'price': 12.99}
+        ]
+
+    }
+
+]
+
 
 # post /store data: {name: }
 @app.route('/store', methods=['POST'])
@@ -31,5 +61,6 @@ def get_store():
 @app.route('/store/<string:store_name>/item')
 def get_items_in_store(store_name):
     pass
+
 
 app.run(port=5001)

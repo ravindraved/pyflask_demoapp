@@ -3,6 +3,8 @@ from flask import *
 app = Flask(__name__)
 app.secret_key = "ayush"
 
+# https://www.javatpoint.com/flask-session
+
 
 @app.route('/')
 def home():
