@@ -1,6 +1,6 @@
-from flask import Flask
+from flask import Flask, jsonify
 
-app = Flas(__name__)
+app = Flask(__name__)
 
 stores = [
 
@@ -9,7 +9,8 @@ stores = [
         'items':
             [
                 {'name': 'store_1_item_1',
-                 'price': 15.99},
+                 'price': 15.99,
+                 'available_qty': 12},
                 {
                     'name': 'store_1_item_2',
                     'price': 12.99
@@ -22,16 +23,25 @@ stores = [
         'name': 'store_2',
         'items': [
             {'name': 'store_2_item_1',
-             'price': 15.99},
+             'price': 15.99,
+             'available_qty': 12
+             },
 
             {'name': 'store_2_item_2',
-             'price': 12.99}
+             'price': 12.99,
+             'available_qty': 12
+             }
+            ,
+
+            {'name': 'store_2_item_3',
+             'price': 12.99,
+             'available_qty': 12
+             }
         ]
 
     }
 
 ]
-
 
 # post /store data: {name: }
 @app.route('/store', methods=['POST'])
@@ -48,7 +58,9 @@ def create_item_in_store(name):
 # Get /store
 @app.route('/store')
 def get_stores():
-    pass
+    #return stores -> raise TypeError : The view function did not return a valid response. The return type must be a string, dict, tuple, Response instance, or WSGI callable, but it was a list.
+
+    return jsonify('stores:', stores)
 
 
 # Get /store/<string:name>
