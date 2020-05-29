@@ -47,7 +47,8 @@ class Item(Resource):
         return {'message': 'item deleted'}
 
     def put(self, name):
-
+        # does request parsing to pass only required field for further processing
+        # also acts like data validation guard rail - boundry check !
         parser = reqparse.RequestParser()
         parser.add_argument('price',
                             type=float,
