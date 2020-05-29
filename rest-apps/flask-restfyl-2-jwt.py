@@ -1,5 +1,8 @@
 from flask import Flask, request
 from flask_restful import Resource, Api
+from flask_jwt import JWT
+
+
 
 """
 check u are in right env - conda env list => pflask
@@ -14,7 +17,10 @@ to encrypt data ..required by jwt obfcustin .. u need secret_key
 
 """
 app = Flask(__name__)
+app.secret_key= 'sec_key_random_here'
 api = Api(app)
+
+jwt = JWT(app,authenticate,identity)
 
 items = []
 
