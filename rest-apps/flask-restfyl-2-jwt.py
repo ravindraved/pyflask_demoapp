@@ -1,6 +1,6 @@
 from flask import Flask, request
 from flask_restful import Resource, Api,reqparse
-from flask_jwt import JWT, jwt_required
+from flask_jwt import JWT, jwt_required, current_identity
 from security import authenticate, identity
 
 """
@@ -17,6 +17,7 @@ to encrypt data ..required by jwt obfcustin .. u need secret_key
 """
 app = Flask(__name__)
 app.secret_key = 'sec_key_random_here'
+app.config['PROPAGATE_EXCEPTIONS'] = True # To allow flask propagating exception even if debug is set to false on app
 api = Api(app)
 
 # using flask_jwt package, and we created two methods authenticate and identity in security module.
@@ -27,6 +28,14 @@ items = []
 
 
 class Item(Resource):
+    parser = reqparse.RequestParser()
+    parser.add_argument('price',
+                        type=float,
+                        required=True,
+                        help="This field cannot be left blank!"
+                        )
+
+
     @jwt_required()
     def get(self, name):
         item = next(filter(lambda x: x['name'] == name, items), None)
